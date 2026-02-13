@@ -22,11 +22,11 @@ const ContactSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-gold font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
             Get In Touch
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Let's <span className="text-gradient-gold">Connect</span>
+            Let's <span className="text-gradient-brand">Connect</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
             Whether you want to collaborate, partner, or support youth initiatives — I'd love to hear from you.
@@ -76,7 +76,7 @@ const ContactSection = () => {
                   <a
                     key={s}
                     href="#"
-                    className="bg-card border border-border text-foreground px-4 py-2 rounded-lg text-xs font-medium hover:border-gold/50 transition-colors"
+                    className="bg-card border border-border text-foreground px-4 py-2 rounded-lg text-xs font-medium hover:border-accent/50 transition-colors"
                   >
                     {s}
                   </a>

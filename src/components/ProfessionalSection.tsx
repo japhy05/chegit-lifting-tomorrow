@@ -46,11 +46,11 @@ const ProfessionalSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-gold font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
             Professional Leadership
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Leading With <span className="text-gradient-gold">Purpose</span>
+            Leading With <span className="text-gradient-brand">Purpose</span>
           </h2>
         </motion.div>
 
@@ -61,7 +61,7 @@ const ProfessionalSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-card border border-border rounded-xl p-6 md:p-8 hover:shadow-elevated hover:border-gold/30 transition-all duration-300"
+              className="group bg-card border border-border rounded-xl p-6 md:p-8 hover:shadow-elevated hover:border-accent/30 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -69,7 +69,7 @@ const ProfessionalSection = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-foreground">{org.name}</h3>
-                  <p className="text-gold text-sm font-medium">{org.role}</p>
+                  <p className="text-accent text-sm font-medium">{org.role}</p>
                 </div>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-3">{org.desc}</p>

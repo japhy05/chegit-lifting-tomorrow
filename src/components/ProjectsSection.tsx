@@ -54,11 +54,11 @@ const ProjectsSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-gold font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
             Projects & Initiatives
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Impact In <span className="text-gradient-gold">Action</span>
+            Impact In <span className="text-gradient-brand">Action</span>
           </h2>
         </motion.div>
 
@@ -69,12 +69,12 @@ const ProjectsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group bg-card border border-border rounded-xl p-6 hover:shadow-elevated hover:border-gold/30 hover:-translate-y-1 transition-all duration-300"
+              className="group bg-card border border-border rounded-xl p-6 hover:shadow-elevated hover:border-accent/30 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <p.icon className="text-primary" size={20} />
               </div>
-              <span className="text-gold text-xs font-semibold tracking-wider uppercase">
+              <span className="text-accent text-xs font-semibold tracking-wider uppercase">
                 {p.category}
               </span>
               <h3 className="font-display text-lg font-bold text-foreground mt-1 mb-2">

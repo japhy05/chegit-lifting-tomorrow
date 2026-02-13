@@ -36,11 +36,11 @@ const BlogSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-gold font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
             Blog & Insights
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Thoughts on <span className="text-gradient-gold">Leadership</span>
+            Thoughts on <span className="text-gradient-brand">Leadership</span>
           </h2>
         </motion.div>
 
@@ -51,11 +51,11 @@ const BlogSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-card border border-border rounded-xl p-6 hover:shadow-elevated hover:border-gold/30 transition-all duration-300 cursor-pointer"
+              className="group bg-card border border-border rounded-xl p-6 hover:shadow-elevated hover:border-accent/30 transition-all duration-300 cursor-pointer"
             >
               <div className="flex items-center gap-2 mb-3">
-                <BookOpen className="text-gold" size={16} />
-                <span className="text-gold text-xs font-semibold tracking-wider uppercase">
+                <BookOpen className="text-accent" size={16} />
+                <span className="text-accent text-xs font-semibold tracking-wider uppercase">
                   {post.category}
                 </span>
               </div>
@@ -67,7 +67,7 @@ const BlogSection = () => {
                 <span className="text-muted-foreground text-xs">{post.date}</span>
                 <ArrowRight
                   size={16}
-                  className="text-gold opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="text-accent opacity-0 group-hover:opacity-100 transition-opacity"
                 />
               </div>
             </motion.div>

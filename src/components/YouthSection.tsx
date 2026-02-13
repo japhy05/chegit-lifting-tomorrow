@@ -55,11 +55,11 @@ const YouthSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-gold font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
             Youth Empowerment & Leadership
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Lifting the Next <span className="text-gradient-gold">Generation</span>
+            Lifting the Next <span className="text-gradient-brand">Generation</span>
           </h2>
         </motion.div>
 
@@ -92,7 +92,7 @@ const YouthSection = () => {
           <ul className="space-y-4">
             {highlights.map((h) => (
               <li key={h} className="flex items-start gap-3">
-                <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-gold shrink-0" />
+                <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-accent shrink-0" />
                 <span className="text-muted-foreground text-base md:text-lg">{h}</span>
               </li>
             ))}

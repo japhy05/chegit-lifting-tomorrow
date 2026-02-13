@@ -28,11 +28,11 @@ const ExpertiseSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-gold font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
             Technical Expertise
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Building With <span className="text-gradient-gold">Excellence</span>
+            Building With <span className="text-gradient-brand">Excellence</span>
           </h2>
         </motion.div>
 
@@ -55,7 +55,7 @@ const ExpertiseSection = () => {
                     initial={{ width: 0 }}
                     animate={inView ? { width: `${skill.level}%` } : {}}
                     transition={{ duration: 1, delay: 0.3 + i * 0.08 }}
-                    className="h-full bg-green-gradient rounded-full"
+                    className="h-full bg-brand-gradient rounded-full"
                   />
                 </div>
               </motion.div>
@@ -75,7 +75,7 @@ const ExpertiseSection = () => {
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-card border border-border text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:border-gold/50 hover:shadow-gold transition-all duration-300 cursor-default"
+                  className="bg-card border border-border text-foreground px-4 py-2 rounded-lg text-sm font-medium hover:border-accent/50 hover:shadow-brand transition-all duration-300 cursor-default"
                 >
                   {tech}
                 </span>

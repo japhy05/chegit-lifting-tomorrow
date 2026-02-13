@@ -33,11 +33,11 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-gold font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
             Testimonials
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Voices of <span className="text-gradient-gold">Impact</span>
+            Voices of <span className="text-gradient-brand">Impact</span>
           </h2>
         </motion.div>
 
@@ -50,13 +50,13 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-card border border-border rounded-xl p-6 relative"
             >
-              <Quote className="text-gold/30 absolute top-4 right-4" size={24} />
+              <Quote className="text-accent/30 absolute top-4 right-4" size={24} />
               <p className="text-muted-foreground text-sm leading-relaxed italic mb-4">
                 "{t.quote}"
               </p>
               <div>
                 <p className="font-display font-bold text-foreground text-sm">{t.name}</p>
-                <p className="text-gold text-xs">{t.role}</p>
+                <p className="text-accent text-xs">{t.role}</p>
               </div>
             </motion.div>
           ))}

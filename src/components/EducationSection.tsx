@@ -15,11 +15,11 @@ const EducationSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-gold font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
             Education
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Built on <span className="text-gradient-gold">Discipline</span>
+            Built on <span className="text-gradient-brand">Discipline</span>
           </h2>
         </motion.div>
 
@@ -37,7 +37,7 @@ const EducationSection = () => {
               <h3 className="font-display text-xl font-bold text-foreground">
                 Bachelor of Computer Science
               </h3>
-              <p className="text-gold font-medium text-sm">
+              <p className="text-accent font-medium text-sm">
                 Catholic University of Eastern Africa
               </p>
               <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
@@ -61,7 +61,7 @@ const EducationSection = () => {
               <h3 className="font-display text-xl font-bold text-foreground">
                 Nairobi School
               </h3>
-              <p className="text-gold font-medium text-sm">
+              <p className="text-accent font-medium text-sm">
                 Secondary Education
               </p>
               <p className="text-muted-foreground text-sm mt-2 leading-relaxed">

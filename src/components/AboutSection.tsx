@@ -73,7 +73,7 @@ const AboutSection = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="relative bg-card rounded-xl p-6 mt-8 animated-border"
+                className="relative glass-card rounded-xl p-6 mt-8 animated-border"
               >
                 <Quote className="text-accent/20 absolute top-4 right-4" size={32} />
                 <p className="text-foreground font-display text-xl md:text-2xl italic leading-relaxed">

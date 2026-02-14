@@ -71,7 +71,7 @@ const ProjectsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group glass-dark rounded-2xl p-6 md:p-7 hover-lift cursor-default"
+              className="group glass-dark rounded-2xl p-6 md:p-7 hover-lift animated-border cursor-default"
             >
               <div className="flex items-start justify-between mb-5">
                 <div className="w-11 h-11 rounded-xl bg-brand-gradient flex items-center justify-center group-hover:shadow-glow transition-shadow duration-500">

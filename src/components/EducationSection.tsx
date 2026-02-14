@@ -47,7 +47,7 @@ const EducationSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: item.delay }}
-              className="group bg-card rounded-2xl p-7 md:p-8 flex gap-6 hover-lift animated-border cursor-default"
+              className="group glass-card rounded-2xl p-7 md:p-8 flex gap-6 hover-lift animated-border cursor-default"
             >
               <div className="w-14 h-14 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 group-hover:shadow-glow transition-shadow duration-500">
                 <item.icon className="text-primary-foreground" size={26} />

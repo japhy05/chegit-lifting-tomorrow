@@ -29,7 +29,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark mb-8"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-accent mb-8"
             >
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="text-primary-foreground/70 font-body text-xs tracking-[0.2em] uppercase">
@@ -72,7 +72,7 @@ const HeroSection = () => {
               </a>
               <a
                 href="#projects"
-                className="group glass-dark text-primary-foreground px-8 py-4 rounded-xl font-semibold text-base hover:bg-primary-foreground/10 transition-all duration-300 flex items-center gap-3"
+                className="group glass-accent text-primary-foreground px-8 py-4 rounded-xl font-semibold text-base hover:bg-indigo/20 transition-all duration-300 flex items-center gap-3"
               >
                 <Eye size={18} /> View My Work
               </a>

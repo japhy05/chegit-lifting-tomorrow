@@ -63,7 +63,7 @@ const ProfessionalSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-card rounded-2xl p-7 md:p-8 hover-lift animated-border cursor-default"
+              className="group glass-card rounded-2xl p-7 md:p-8 hover-lift animated-border cursor-default"
             >
               <div className="flex items-start justify-between mb-5">
                 <div className="w-12 h-12 rounded-xl bg-brand-gradient flex items-center justify-center group-hover:shadow-glow transition-shadow duration-500">

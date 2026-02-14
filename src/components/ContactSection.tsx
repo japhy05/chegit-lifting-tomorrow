@@ -48,7 +48,7 @@ const ContactSection = () => {
               { icon: Mail, title: "Email", value: "chegit@contact.com" },
               { icon: Phone, title: "Phone", value: "+254 7XX XXX XXX" },
             ].map((item) => (
-              <div key={item.title} className="group glass-dark rounded-xl p-5 flex items-center gap-4 hover:bg-primary/5 transition-all duration-300 cursor-default">
+              <div key={item.title} className="group glass-accent rounded-xl p-5 flex items-center gap-4 hover:bg-indigo/10 transition-all duration-300 cursor-default">
                 <div className="w-11 h-11 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 group-hover:shadow-glow transition-shadow duration-500">
                   <item.icon className="text-primary-foreground" size={18} />
                 </div>
@@ -82,7 +82,7 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass-dark rounded-2xl p-7 md:p-8 space-y-5"
+            className="glass-dark rounded-2xl p-7 md:p-8 space-y-5 animated-border"
           >
             {[
               { label: "Name", type: "text", placeholder: "Your full name" },

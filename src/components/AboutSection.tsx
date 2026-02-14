@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Quote } from "lucide-react";
 import aboutPhoto from "@/assets/about-photo.jpeg";
 
 const AboutSection = () => {
@@ -7,23 +8,29 @@ const AboutSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-background">
+    <section id="about" className="py-24 md:py-36 bg-background relative overflow-hidden">
+      {/* Subtle background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-indigo/3 rounded-full blur-[150px] pointer-events-none" />
+      
       <div className="container mx-auto px-4 md:px-8" ref={ref}>
-        <div className="grid md:grid-cols-5 gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-16 items-center max-w-6xl mx-auto">
           {/* Photo */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
             className="md:col-span-2"
           >
-            <div className="relative">
-              <div className="absolute -inset-2 bg-primary/10 rounded-2xl blur-xl" />
-              <img
-                src={aboutPhoto}
-                alt="Kibet Kemboi"
-                className="relative rounded-2xl w-full object-cover shadow-elevated"
-              />
+            <div className="relative group">
+              <div className="absolute -inset-3 bg-brand-gradient rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500" />
+              <div className="relative overflow-hidden rounded-2xl animated-border">
+                <img
+                  src={aboutPhoto}
+                  alt="Kibet Kemboi"
+                  className="relative rounded-2xl w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent rounded-2xl" />
+              </div>
             </div>
           </motion.div>
 
@@ -31,13 +38,13 @@ const AboutSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
             className="md:col-span-3"
           >
-            <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
+            <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
               About Chegit
             </p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-8">
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-10 leading-tight">
               A Name That Means{" "}
               <span className="text-gradient-brand">To Lift</span>
             </h2>
@@ -61,9 +68,18 @@ const AboutSection = () => {
                 deep commitment to environmental sustainability, technological innovation, and
                 agricultural enterprise.
               </p>
-              <p className="text-foreground font-display text-xl md:text-2xl italic border-l-4 border-accent pl-6 py-2">
-                "Chegit is not just a name. It is a calling — to lift."
-              </p>
+              
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="relative bg-card rounded-xl p-6 mt-8 animated-border"
+              >
+                <Quote className="text-accent/20 absolute top-4 right-4" size={32} />
+                <p className="text-foreground font-display text-xl md:text-2xl italic leading-relaxed">
+                  "Chegit is not just a name. It is a calling — to lift."
+                </p>
+              </motion.div>
             </div>
           </motion.div>
         </div>

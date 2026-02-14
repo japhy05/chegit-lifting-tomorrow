@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Leaf, Cpu, Sprout, Users } from "lucide-react";
+import { Leaf, Cpu, Sprout, Users, ArrowUpRight } from "lucide-react";
 
 const orgs = [
   {
@@ -38,42 +38,43 @@ const ProfessionalSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 md:py-32 bg-background">
+    <section className="py-24 md:py-36 bg-background relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo/3 rounded-full blur-[150px] pointer-events-none" />
+      
       <div className="container mx-auto px-4 md:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
             Professional Leadership
           </p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
             Leading With <span className="text-gradient-brand">Purpose</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
           {orgs.map((org, i) => (
             <motion.div
               key={org.name}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-card border border-border rounded-xl p-6 md:p-8 hover:shadow-elevated hover:border-accent/30 transition-all duration-300"
+              className="group bg-card rounded-2xl p-7 md:p-8 hover-lift animated-border cursor-default"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <org.icon className="text-primary" size={20} />
+              <div className="flex items-start justify-between mb-5">
+                <div className="w-12 h-12 rounded-xl bg-brand-gradient flex items-center justify-center group-hover:shadow-glow transition-shadow duration-500">
+                  <org.icon className="text-primary-foreground" size={22} />
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-foreground">{org.name}</h3>
-                  <p className="text-accent text-sm font-medium">{org.role}</p>
-                </div>
+                <ArrowUpRight size={18} className="text-muted-foreground/30 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-3">{org.desc}</p>
-              <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">
+              <h3 className="font-display text-xl font-bold text-foreground mb-1">{org.name}</h3>
+              <p className="text-accent text-sm font-medium font-body mb-4">{org.role}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed font-body mb-5">{org.desc}</p>
+              <span className="inline-block bg-primary/8 text-primary text-xs font-semibold px-4 py-1.5 rounded-full font-body">
                 {org.focus}
               </span>
             </motion.div>

@@ -52,7 +52,7 @@ const ExpertiseSection = () => {
                   <span className="font-medium text-foreground font-body">{skill.name}</span>
                   <span className="text-accent font-semibold">{skill.level}%</span>
                 </div>
-                <div className="h-3 bg-muted rounded-full overflow-hidden">
+                <div className="h-3 bg-muted/50 rounded-full overflow-hidden backdrop-blur-sm">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={inView ? { width: `${skill.level}%` } : {}}
@@ -83,7 +83,7 @@ const ExpertiseSection = () => {
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.3, delay: 0.4 + i * 0.05 }}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className="bg-card border border-border text-foreground px-5 py-2.5 rounded-xl text-sm font-medium hover:border-accent/50 hover:shadow-brand transition-all duration-300 cursor-default font-body"
+                  className="glass-card text-foreground px-5 py-2.5 rounded-xl text-sm font-medium hover:border-accent/50 hover:shadow-brand transition-all duration-300 cursor-default font-body"
                 >
                   {tech}
                 </motion.span>

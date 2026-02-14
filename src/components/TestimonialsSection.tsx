@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-card rounded-2xl p-7 relative hover-lift animated-border cursor-default"
+              className="group glass-card rounded-2xl p-7 relative hover-lift animated-border cursor-default"
             >
               <Quote className="text-accent/15 absolute top-6 right-6" size={28} />
               <div className="flex gap-0.5 mb-4">

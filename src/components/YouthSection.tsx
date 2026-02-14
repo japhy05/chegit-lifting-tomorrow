@@ -75,7 +75,7 @@ const YouthSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group glass-dark rounded-2xl p-6 md:p-8 text-center hover-lift cursor-default"
+              className="group glass-accent rounded-2xl p-6 md:p-8 text-center hover-lift cursor-default"
             >
               <div className="w-12 h-12 rounded-xl bg-brand-gradient flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-shadow duration-500">
                 <c.icon className="text-primary-foreground" size={22} />
@@ -101,7 +101,7 @@ const YouthSection = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
-              className="group glass-dark rounded-xl px-6 py-4 flex items-center gap-4 hover:bg-primary/5 transition-all duration-300 cursor-default"
+              className="group glass-dark rounded-xl px-6 py-4 flex items-center gap-4 hover:bg-indigo/10 transition-all duration-300 cursor-default"
             >
               <ArrowUpRight size={16} className="text-accent shrink-0 group-hover:rotate-45 transition-transform duration-300" />
               <span className="text-primary-foreground/70 text-base font-body flex-1">{h.text}</span>

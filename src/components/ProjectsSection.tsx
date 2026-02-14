@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code, Users, Leaf, Sprout } from "lucide-react";
+import { Code, Users, Leaf, Sprout, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -46,41 +46,46 @@ const ProjectsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-background">
+    <section id="projects" className="py-24 md:py-36 bg-section-dark relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 w-96 h-96 bg-indigo/5 rounded-full blur-[150px] pointer-events-none -translate-x-1/2" />
+      
       <div className="container mx-auto px-4 md:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
             Projects & Initiatives
           </p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground">
             Impact In <span className="text-gradient-brand">Action</span>
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {projects.map((p, i) => (
             <motion.div
               key={p.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group bg-card border border-border rounded-xl p-6 hover:shadow-elevated hover:border-accent/30 hover:-translate-y-1 transition-all duration-300"
+              className="group glass-dark rounded-2xl p-6 md:p-7 hover-lift cursor-default"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <p.icon className="text-primary" size={20} />
+              <div className="flex items-start justify-between mb-5">
+                <div className="w-11 h-11 rounded-xl bg-brand-gradient flex items-center justify-center group-hover:shadow-glow transition-shadow duration-500">
+                  <p.icon className="text-primary-foreground" size={20} />
+                </div>
+                <ArrowUpRight size={16} className="text-primary-foreground/20 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
               </div>
-              <span className="text-accent text-xs font-semibold tracking-wider uppercase">
+              <span className="text-accent text-xs font-semibold tracking-wider uppercase font-body">
                 {p.category}
               </span>
-              <h3 className="font-display text-lg font-bold text-foreground mt-1 mb-2">
+              <h3 className="font-display text-lg font-bold text-primary-foreground mt-1.5 mb-3">
                 {p.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+              <p className="text-primary-foreground/50 text-sm leading-relaxed font-body">{p.desc}</p>
             </motion.div>
           ))}
         </div>

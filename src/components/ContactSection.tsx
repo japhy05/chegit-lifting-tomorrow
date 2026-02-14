@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { MapPin, Mail, Phone, Send } from "lucide-react";
+import { MapPin, Mail, Phone, Send, ArrowUpRight } from "lucide-react";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -14,21 +14,23 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-section-alt">
+    <section id="contact" className="py-24 md:py-36 bg-section-dark relative overflow-hidden">
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-indigo/5 rounded-full blur-[150px] pointer-events-none" />
+      
       <div className="container mx-auto px-4 md:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
             Get In Touch
           </p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground">
             Let's <span className="text-gradient-brand">Connect</span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
+          <p className="text-primary-foreground/50 mt-5 max-w-xl mx-auto font-body">
             Whether you want to collaborate, partner, or support youth initiatives — I'd love to hear from you.
           </p>
         </motion.div>
@@ -39,46 +41,35 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-6"
+            className="space-y-5"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <MapPin className="text-primary" size={20} />
+            {[
+              { icon: MapPin, title: "Location", value: "Eldoret, Kenya" },
+              { icon: Mail, title: "Email", value: "chegit@contact.com" },
+              { icon: Phone, title: "Phone", value: "+254 7XX XXX XXX" },
+            ].map((item) => (
+              <div key={item.title} className="group glass-dark rounded-xl p-5 flex items-center gap-4 hover:bg-primary/5 transition-all duration-300 cursor-default">
+                <div className="w-11 h-11 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 group-hover:shadow-glow transition-shadow duration-500">
+                  <item.icon className="text-primary-foreground" size={18} />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-primary-foreground text-sm">{item.title}</h4>
+                  <p className="text-primary-foreground/50 text-sm font-body">{item.value}</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-display font-bold text-foreground">Location</h4>
-                <p className="text-muted-foreground text-sm">Eldoret, Kenya</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <Mail className="text-primary" size={20} />
-              </div>
-              <div>
-                <h4 className="font-display font-bold text-foreground">Email</h4>
-                <p className="text-muted-foreground text-sm">chegit@contact.com</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <Phone className="text-primary" size={20} />
-              </div>
-              <div>
-                <h4 className="font-display font-bold text-foreground">Phone</h4>
-                <p className="text-muted-foreground text-sm">+254 7XX XXX XXX</p>
-              </div>
-            </div>
+            ))}
 
             <div className="pt-4">
-              <p className="text-sm text-muted-foreground mb-3">Follow on social media</p>
-              <div className="flex gap-3">
+              <p className="text-xs text-primary-foreground/40 mb-3 font-body tracking-wider uppercase">Follow on social media</p>
+              <div className="flex gap-2">
                 {["Twitter", "LinkedIn", "Instagram", "Facebook"].map((s) => (
                   <a
                     key={s}
                     href="#"
-                    className="bg-card border border-border text-foreground px-4 py-2 rounded-lg text-xs font-medium hover:border-accent/50 transition-colors"
+                    className="group/social glass-dark text-primary-foreground/70 px-4 py-2.5 rounded-xl text-xs font-medium hover:bg-primary/10 hover:text-accent transition-all duration-300 flex items-center gap-1.5 font-body"
                   >
                     {s}
+                    <ArrowUpRight size={10} className="opacity-0 group-hover/social:opacity-100 transition-opacity" />
                   </a>
                 ))}
               </div>
@@ -91,40 +82,36 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-card border border-border rounded-xl p-6 md:p-8 space-y-4"
+            className="glass-dark rounded-2xl p-7 md:p-8 space-y-5"
           >
+            {[
+              { label: "Name", type: "text", placeholder: "Your full name" },
+              { label: "Email", type: "email", placeholder: "you@email.com" },
+            ].map((field) => (
+              <div key={field.label}>
+                <label className="text-xs font-medium text-primary-foreground/70 block mb-2 font-body tracking-wider uppercase">{field.label}</label>
+                <input
+                  type={field.type}
+                  required
+                  className="w-full bg-dark/50 border border-border rounded-xl px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/30 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all font-body"
+                  placeholder={field.placeholder}
+                />
+              </div>
+            ))}
             <div>
-              <label className="text-sm font-medium text-foreground block mb-1.5">Name</label>
-              <input
-                type="text"
-                required
-                className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                placeholder="Your full name"
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-foreground block mb-1.5">Email</label>
-              <input
-                type="email"
-                required
-                className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                placeholder="you@email.com"
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-foreground block mb-1.5">Message</label>
+              <label className="text-xs font-medium text-primary-foreground/70 block mb-2 font-body tracking-wider uppercase">Message</label>
               <textarea
                 required
                 rows={4}
-                className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+                className="w-full bg-dark/50 border border-border rounded-xl px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/30 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all resize-none font-body"
                 placeholder="How can we collaborate?"
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+              className="w-full bg-brand-gradient text-primary-foreground py-3.5 rounded-xl font-semibold text-sm hover:shadow-glow transition-all duration-500 flex items-center justify-center gap-2 font-body"
             >
-              {submitted ? "Message Sent!" : (
+              {submitted ? "Message Sent! ✓" : (
                 <>
                   Send Message <Send size={16} />
                 </>

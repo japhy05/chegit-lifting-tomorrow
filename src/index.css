@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 230 25% 97%;
     --foreground: 230 25% 10%;
 
     --card: 0 0% 100%;
@@ -34,11 +34,12 @@
     --input: 230 15% 88%;
     --ring: 235 55% 38%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --indigo: 235 55% 38%;
     --indigo-light: 235 55% 55%;
     --indigo-dark: 235 60% 25%;
+    --indigo-glow: 235 80% 65%;
     --dark: 230 25% 8%;
     --deep-dark: 230 30% 5%;
 
@@ -52,7 +53,7 @@
     --sidebar-ring: 235 55% 50%;
 
     --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
+    --font-body: 'Space Grotesk', 'Inter', system-ui, sans-serif;
   }
 
   .dark {
@@ -94,16 +95,19 @@
 @layer utilities {
   .text-gradient-brand {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--indigo)) 0%, hsl(var(--indigo-light)) 100%);
+    background-image: linear-gradient(135deg, hsl(var(--indigo)) 0%, hsl(var(--indigo-glow)) 100%);
   }
   .bg-hero-gradient {
-    background: linear-gradient(135deg, hsl(var(--deep-dark)) 0%, hsl(var(--dark)) 40%, hsl(230 20% 15%) 100%);
+    background: linear-gradient(160deg, hsl(var(--deep-dark)) 0%, hsl(230 30% 8%) 30%, hsl(235 40% 12%) 60%, hsl(235 50% 15%) 100%);
   }
   .bg-section-alt {
-    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(230 20% 95%) 100%);
+  }
+  .bg-section-dark {
+    background: linear-gradient(160deg, hsl(var(--dark)) 0%, hsl(235 35% 12%) 100%);
   }
   .bg-brand-gradient {
-    background: linear-gradient(135deg, hsl(var(--indigo)) 0%, hsl(var(--indigo-dark)) 100%);
+    background: linear-gradient(135deg, hsl(var(--indigo)) 0%, hsl(var(--indigo-glow)) 100%);
   }
   .shadow-brand {
     box-shadow: 0 4px 30px -5px hsl(var(--indigo) / 0.3);
@@ -111,8 +115,59 @@
   .shadow-elevated {
     box-shadow: 0 20px 60px -15px hsl(var(--foreground) / 0.1);
   }
+  .shadow-glow {
+    box-shadow: 0 0 40px -10px hsl(var(--indigo-glow) / 0.4);
+  }
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  .glass-dark {
+    background: hsl(var(--dark) / 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(230 20% 20% / 0.5);
+  }
+  .hover-lift {
+    @apply transition-all duration-500;
+  }
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px hsl(var(--indigo) / 0.25);
+  }
+  .animated-border {
+    position: relative;
+    overflow: hidden;
+  }
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--indigo-glow) / 0.5), transparent 50%, hsl(var(--indigo-glow) / 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--indigo) / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--indigo) / 0.5);
 }

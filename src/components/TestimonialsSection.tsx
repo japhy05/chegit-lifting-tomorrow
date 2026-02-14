@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -25,38 +25,45 @@ const TestimonialsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 md:py-32 bg-section-alt">
+    <section className="py-24 md:py-36 bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 left-0 w-80 h-80 bg-indigo/3 rounded-full blur-[150px] pointer-events-none" />
+      
       <div className="container mx-auto px-4 md:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
             Testimonials
           </p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
             Voices of <span className="text-gradient-brand">Impact</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-card border border-border rounded-xl p-6 relative"
+              className="group bg-card rounded-2xl p-7 relative hover-lift animated-border cursor-default"
             >
-              <Quote className="text-accent/30 absolute top-4 right-4" size={24} />
-              <p className="text-muted-foreground text-sm leading-relaxed italic mb-4">
+              <Quote className="text-accent/15 absolute top-6 right-6" size={28} />
+              <div className="flex gap-0.5 mb-4">
+                {[...Array(5)].map((_, s) => (
+                  <Star key={s} size={14} className="text-accent fill-accent" />
+                ))}
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed italic mb-6 font-body">
                 "{t.quote}"
               </p>
-              <div>
+              <div className="border-t border-border pt-4">
                 <p className="font-display font-bold text-foreground text-sm">{t.name}</p>
-                <p className="text-accent text-xs">{t.role}</p>
+                <p className="text-accent text-xs font-body">{t.role}</p>
               </div>
             </motion.div>
           ))}

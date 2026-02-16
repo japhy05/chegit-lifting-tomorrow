@@ -7,10 +7,10 @@ const EducationSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="education" className="py-24 md:py-36 bg-section-alt relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo/3 rounded-full blur-[120px] pointer-events-none" />
+    <section id="education" className="py-16 sm:py-24 md:py-36 bg-section-alt relative overflow-hidden">
+      <div className="absolute bottom-0 right-0 w-48 sm:w-72 h-48 sm:h-72 bg-indigo/3 rounded-full blur-[120px] pointer-events-none" />
       
-      <div className="container mx-auto px-4 md:px-8" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 md:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -20,7 +20,7 @@ const EducationSection = () => {
           <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
             Education
           </p>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
             Built on <span className="text-gradient-brand">Discipline</span>
           </h2>
         </motion.div>
@@ -47,7 +47,7 @@ const EducationSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: item.delay }}
-              className="group glass-card rounded-2xl p-7 md:p-8 flex gap-6 hover-lift animated-border cursor-default"
+              className="group glass-card rounded-2xl p-5 sm:p-7 md:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 hover-lift animated-border cursor-default"
             >
               <div className="w-14 h-14 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0 group-hover:shadow-glow transition-shadow duration-500">
                 <item.icon className="text-primary-foreground" size={26} />

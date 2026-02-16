@@ -38,10 +38,10 @@ const ProfessionalSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 md:py-36 bg-background relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo/3 rounded-full blur-[150px] pointer-events-none" />
+    <section className="py-16 sm:py-24 md:py-36 bg-background relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-56 sm:w-80 h-56 sm:h-80 bg-indigo/3 rounded-full blur-[150px] pointer-events-none" />
       
-      <div className="container mx-auto px-4 md:px-8" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 md:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -51,7 +51,7 @@ const ProfessionalSection = () => {
           <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
             Professional Leadership
           </p>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
             Leading With <span className="text-gradient-brand">Purpose</span>
           </h2>
         </motion.div>

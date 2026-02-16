@@ -47,12 +47,12 @@ const YouthSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="leadership" className="py-24 md:py-36 bg-section-dark relative overflow-hidden">
+    <section id="leadership" className="py-16 sm:py-24 md:py-36 bg-section-dark relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-indigo/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-light/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-indigo/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-light/5 rounded-full blur-[150px] pointer-events-none" />
       
-      <div className="container mx-auto px-4 md:px-8" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 md:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -62,7 +62,7 @@ const YouthSection = () => {
           <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
             Youth Empowerment & Leadership
           </p>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground">
             Lifting the Next <span className="text-gradient-brand">Generation</span>
           </h2>
         </motion.div>
@@ -80,7 +80,7 @@ const YouthSection = () => {
               <div className="w-12 h-12 rounded-xl bg-brand-gradient flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-shadow duration-500">
                 <c.icon className="text-primary-foreground" size={22} />
               </div>
-              <div className="font-display text-3xl md:text-5xl font-bold text-primary-foreground">
+              <div className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary-foreground">
                 <AnimatedCounter target={c.value} suffix={c.suffix} />
               </div>
               <p className="text-primary-foreground/50 text-sm mt-2 font-body">{c.label}</p>

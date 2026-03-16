@@ -70,8 +70,8 @@ const ProfessionalSection = () => {
               className="group glass-card rounded-2xl p-7 md:p-8 hover-lift animated-border cursor-default"
             >
               <div className="flex items-start justify-between mb-5">
-                <div className="w-12 h-12 rounded-xl bg-brand-gradient flex items-center justify-center group-hover:shadow-glow transition-shadow duration-500">
-                  <org.icon className="text-primary-foreground" size={22} />
+                <div className="w-14 h-14 rounded-xl bg-card overflow-hidden flex items-center justify-center p-1.5 border border-border/50 group-hover:shadow-glow transition-shadow duration-500">
+                  <img src={org.logo} alt={`${org.name} logo`} className="w-full h-full object-contain" />
                 </div>
                 <ArrowUpRight size={18} className="text-muted-foreground/30 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
               </div>

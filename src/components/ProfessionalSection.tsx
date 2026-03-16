@@ -1,31 +1,35 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Leaf, Cpu, Sprout, Users, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import shizenLogo from "@/assets/shizen-greenify-logo.png";
+import xiracomLogo from "@/assets/xiracom-logo.png";
+import mkLogo from "@/assets/mk-organic-farms-logo.png";
+import rutoKumiLogo from "@/assets/ruto-kumi-logo.jpg";
 
 const orgs = [
   {
-    icon: Leaf,
+    logo: shizenLogo,
     name: "Shizen Greenify Foundation",
     role: "CEO & Founder",
     desc: "Leading environmental sustainability initiatives across Kenya. From tree planting campaigns to waste management innovation, Shizen Greenify is building a greener future for African communities.",
     focus: "Sustainability & Environmental Leadership",
   },
   {
-    icon: Cpu,
+    logo: xiracomLogo,
     name: "Xiracom Ltd",
     role: "COO",
     desc: "Driving innovation and strategic growth in technology solutions. Xiracom builds digital tools that empower businesses and institutions to scale efficiently in the African market.",
     focus: "Innovation & Strategy",
   },
   {
-    icon: Sprout,
+    logo: mkLogo,
     name: "M & K Organic Farms",
     role: "Managing Director",
     desc: "Pioneering organic agricultural enterprise that demonstrates how sustainable farming can drive economic empowerment. Creating employment and food security in the Rift Valley region.",
     focus: "Agriculture & Enterprise",
   },
   {
-    icon: Users,
+    logo: rutoKumiLogo,
     name: "Ruto Kumi Bila Break Movement",
     role: "Constituency Coordinator — Keiyo South",
     desc: "Mobilizing grassroots support and youth participation in democratic processes. Coordinating community outreach and civic education to ensure every voice is heard.",

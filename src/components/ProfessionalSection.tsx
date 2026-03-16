@@ -1,31 +1,35 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Leaf, Cpu, Sprout, Users, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import shizenLogo from "@/assets/shizen-greenify-logo.png";
+import xiracomLogo from "@/assets/xiracom-logo.png";
+import mkLogo from "@/assets/mk-organic-farms-logo.png";
+import rutoKumiLogo from "@/assets/ruto-kumi-logo.jpg";
 
 const orgs = [
   {
-    icon: Leaf,
+    logo: shizenLogo,
     name: "Shizen Greenify Foundation",
     role: "CEO & Founder",
     desc: "Leading environmental sustainability initiatives across Kenya. From tree planting campaigns to waste management innovation, Shizen Greenify is building a greener future for African communities.",
     focus: "Sustainability & Environmental Leadership",
   },
   {
-    icon: Cpu,
+    logo: xiracomLogo,
     name: "Xiracom Ltd",
     role: "COO",
     desc: "Driving innovation and strategic growth in technology solutions. Xiracom builds digital tools that empower businesses and institutions to scale efficiently in the African market.",
     focus: "Innovation & Strategy",
   },
   {
-    icon: Sprout,
+    logo: mkLogo,
     name: "M & K Organic Farms",
     role: "Managing Director",
     desc: "Pioneering organic agricultural enterprise that demonstrates how sustainable farming can drive economic empowerment. Creating employment and food security in the Rift Valley region.",
     focus: "Agriculture & Enterprise",
   },
   {
-    icon: Users,
+    logo: rutoKumiLogo,
     name: "Ruto Kumi Bila Break Movement",
     role: "Constituency Coordinator — Keiyo South",
     desc: "Mobilizing grassroots support and youth participation in democratic processes. Coordinating community outreach and civic education to ensure every voice is heard.",
@@ -66,8 +70,8 @@ const ProfessionalSection = () => {
               className="group glass-card rounded-2xl p-7 md:p-8 hover-lift animated-border cursor-default"
             >
               <div className="flex items-start justify-between mb-5">
-                <div className="w-12 h-12 rounded-xl bg-brand-gradient flex items-center justify-center group-hover:shadow-glow transition-shadow duration-500">
-                  <org.icon className="text-primary-foreground" size={22} />
+                <div className="w-14 h-14 rounded-xl bg-card overflow-hidden flex items-center justify-center p-1.5 border border-border/50 group-hover:shadow-glow transition-shadow duration-500">
+                  <img src={org.logo} alt={`${org.name} logo`} className="w-full h-full object-contain" />
                 </div>
                 <ArrowUpRight size={18} className="text-muted-foreground/30 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
               </div>

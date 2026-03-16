@@ -73,8 +73,8 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 235 55% 50%;
 
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    --font-display: 'Amaranth', 'Arial', sans-serif;
+    --font-body: 'Glacial Indifference', 'Arial', system-ui, sans-serif;
   }
 
   .dark {

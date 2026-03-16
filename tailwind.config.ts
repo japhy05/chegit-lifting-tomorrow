@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "Georgia", "serif"],
-        body: ["Space Grotesk", "Inter", "system-ui", "sans-serif"],
+        display: ["Amaranth", "Arial", "sans-serif"],
+        body: ["Glacial Indifference", "Arial", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

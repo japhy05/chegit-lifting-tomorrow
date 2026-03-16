@@ -1,25 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@font-face {
-  font-family: 'Glacial Indifference';
-  src: url('/fonts/GlacialIndifference-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Glacial Indifference';
-  src: url('/fonts/GlacialIndifference-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Glacial Indifference';
-  src: url('/fonts/GlacialIndifference-Italic.otf') format('opentype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+@import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
 
 @tailwind base;
 @tailwind components;

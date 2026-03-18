@@ -38,6 +38,33 @@ export type Database = {
         }
         Relationships: []
       }
+      gallery_photos: {
+        Row: {
+          alt_text: string
+          created_at: string
+          display_order: number
+          id: string
+          image_url: string
+          span: string
+        }
+        Insert: {
+          alt_text?: string
+          created_at?: string
+          display_order?: number
+          id?: string
+          image_url: string
+          span?: string
+        }
+        Update: {
+          alt_text?: string
+          created_at?: string
+          display_order?: number
+          id?: string
+          image_url?: string
+          span?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

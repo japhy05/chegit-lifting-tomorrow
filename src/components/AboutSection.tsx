@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Quote, MapPin } from "lucide-react";
 import aboutPhoto from "@/assets/about-photo.jpeg";
 
-const spring = { type: "spring", damping: 24, stiffness: 200 };
+const spring = { type: "spring" as const, damping: 24, stiffness: 200 };
 
 const AboutSection = () => {
   const ref = useRef(null);

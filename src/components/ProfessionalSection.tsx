@@ -6,7 +6,7 @@ import xiracomLogo from "@/assets/xiracom-logo.png";
 import mkLogo from "@/assets/mk-organic-farms-logo.png";
 import rutoKumiLogo from "@/assets/ruto-kumi-logo.jpg";
 
-const spring = { type: "spring", damping: 24, stiffness: 200 };
+const spring = { type: "spring" as const, damping: 24, stiffness: 200 };
 
 const orgs = [
   {

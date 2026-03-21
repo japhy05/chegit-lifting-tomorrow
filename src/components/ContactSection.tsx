@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone, Send, ArrowUpRight, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
-const spring = { type: "spring", damping: 24, stiffness: 200 };
+const spring = { type: "spring" as const, damping: 24, stiffness: 200 };
 
 const ContactSection = () => {
   const ref = useRef(null);

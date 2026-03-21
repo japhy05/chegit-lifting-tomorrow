@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, School } from "lucide-react";
 
-const spring = { type: "spring", damping: 24, stiffness: 200 };
+const spring = { type: "spring" as const, damping: 24, stiffness: 200 };
 
 const EducationSection = () => {
   const ref = useRef(null);

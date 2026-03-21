@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Users, Briefcase, MapPin, Heart, ArrowUpRight } from "lucide-react";
 
-const spring = { type: "spring", damping: 24, stiffness: 200 };
+const spring = { type: "spring" as const, damping: 24, stiffness: 200 };
 
 const counters = [
   { icon: Users, value: 5000, suffix: "+", label: "Youth Reached", color: "from-indigo to-indigo-light" },

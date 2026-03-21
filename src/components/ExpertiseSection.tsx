@@ -1,6 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const spring = { type: "spring" as const, damping: 24, stiffness: 200 };
+
 const skills = [
   { name: "Software Development", level: 90 },
   { name: "Digital Solutions & Innovation", level: 85 },
@@ -21,16 +23,16 @@ const ExpertiseSection = () => {
 
   return (
     <section id="expertise" className="py-16 sm:py-24 md:py-36 bg-section-alt relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-56 sm:w-80 h-56 sm:h-80 bg-indigo/3 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-56 sm:w-80 h-56 sm:h-80 bg-indigo/[0.03] rounded-full blur-[160px] pointer-events-none" />
       
       <div className="container mx-auto px-4 sm:px-6 md:px-8" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          transition={spring}
+          className="text-center mb-16 sm:mb-20"
         >
-          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
+          <p className="text-accent font-body text-[11px] tracking-[0.3em] uppercase mb-4 font-semibold">
             Technical Expertise
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
@@ -38,52 +40,51 @@ const ExpertiseSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
-          {/* Skill bars */}
-          <div className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-12 sm:gap-16 max-w-5xl mx-auto">
+          <div className="space-y-5">
             {skills.map((skill, i) => (
               <motion.div
                 key={skill.name}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                transition={{ ...spring, delay: i * 0.06 }}
               >
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="font-medium text-foreground font-body">{skill.name}</span>
-                  <span className="text-accent font-semibold">{skill.level}%</span>
+                <div className="flex justify-between text-sm mb-2.5">
+                  <span className="font-medium text-foreground font-body text-[13px]">{skill.name}</span>
+                  <span className="text-accent font-semibold text-[13px]">{skill.level}%</span>
                 </div>
-                <div className="h-3 bg-muted/50 rounded-full overflow-hidden backdrop-blur-sm">
+                <div className="h-2.5 bg-muted/40 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={inView ? { width: `${skill.level}%` } : {}}
-                    transition={{ duration: 1.2, delay: 0.3 + i * 0.08, ease: "easeOut" }}
+                    transition={{ duration: 1.4, delay: 0.2 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
                     className="h-full bg-brand-gradient rounded-full relative"
                   >
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary-foreground shadow-glow" />
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-primary-foreground shadow-glow" />
                   </motion.div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Tech stack */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ ...spring, delay: 0.15 }}
           >
-            <h3 className="font-display text-2xl font-bold text-foreground mb-6">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-6">
               Technology Stack
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2.5">
               {techStack.map((tech, i) => (
                 <motion.span
                   key={tech}
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.85 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.3, delay: 0.4 + i * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  className="glass-card text-foreground px-5 py-2.5 rounded-xl text-sm font-medium hover:border-accent/50 hover:shadow-brand transition-all duration-300 cursor-default font-body"
+                  transition={{ ...spring, delay: 0.3 + i * 0.04 }}
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  className="glass-card text-foreground px-4 py-2.5 rounded-2xl text-[13px] font-medium hover:border-accent/40 hover:shadow-brand transition-all duration-300 cursor-default font-body"
+                  style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
                 >
                   {tech}
                 </motion.span>

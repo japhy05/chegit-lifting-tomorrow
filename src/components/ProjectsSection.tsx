@@ -2,6 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Code, Users, Leaf, Sprout, ArrowUpRight } from "lucide-react";
 
+const spring = { type: "spring" as const, damping: 24, stiffness: 200 };
+
 const projects = [
   {
     icon: Code,
@@ -47,16 +49,16 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-16 sm:py-24 md:py-36 bg-section-dark relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-indigo/5 rounded-full blur-[150px] pointer-events-none -translate-x-1/2" />
+      <div className="absolute top-0 left-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-indigo/[0.04] rounded-full blur-[160px] pointer-events-none -translate-x-1/2" />
       
       <div className="container mx-auto px-4 sm:px-6 md:px-8" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          transition={spring}
+          className="text-center mb-16 sm:mb-20"
         >
-          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
+          <p className="text-accent font-body text-[11px] tracking-[0.3em] uppercase mb-4 font-semibold">
             Projects & Initiatives
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground">
@@ -64,28 +66,28 @@ const ProjectsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
           {projects.map((p, i) => (
             <motion.div
               key={p.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group glass-dark rounded-2xl p-6 md:p-7 hover-lift animated-border cursor-default"
+              transition={{ ...spring, delay: i * 0.06 }}
+              className="group glass-dark rounded-3xl p-6 md:p-7 hover-lift cursor-default"
             >
               <div className="flex items-start justify-between mb-5">
-                <div className="w-11 h-11 rounded-xl bg-brand-gradient flex items-center justify-center group-hover:shadow-glow transition-shadow duration-500">
-                  <p.icon className="text-primary-foreground" size={20} />
+                <div className="w-11 h-11 rounded-2xl bg-brand-gradient flex items-center justify-center group-hover:shadow-glow transition-shadow duration-500">
+                  <p.icon className="text-primary-foreground" size={19} />
                 </div>
-                <ArrowUpRight size={16} className="text-primary-foreground/20 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
+                <ArrowUpRight size={15} className="text-primary-foreground/15 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
               </div>
-              <span className="text-accent text-xs font-semibold tracking-wider uppercase font-body">
+              <span className="text-accent text-[11px] font-semibold tracking-wider uppercase font-body">
                 {p.category}
               </span>
               <h3 className="font-display text-lg font-bold text-primary-foreground mt-1.5 mb-3">
                 {p.title}
               </h3>
-              <p className="text-primary-foreground/50 text-sm leading-relaxed font-body">{p.desc}</p>
+              <p className="text-primary-foreground/45 text-sm leading-relaxed font-body font-light">{p.desc}</p>
             </motion.div>
           ))}
         </div>

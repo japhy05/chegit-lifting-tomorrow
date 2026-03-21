@@ -2,6 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { BookOpen, ArrowUpRight, Clock } from "lucide-react";
 
+const spring = { type: "spring", damping: 24, stiffness: 200 };
+
 const posts = [
   {
     category: "Youth Empowerment",
@@ -32,16 +34,16 @@ const BlogSection = () => {
 
   return (
     <section className="py-16 sm:py-24 md:py-36 bg-section-alt relative overflow-hidden">
-      <div className="absolute top-0 right-1/4 w-48 sm:w-72 h-48 sm:h-72 bg-indigo/3 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-48 sm:w-72 h-48 sm:h-72 bg-indigo/[0.03] rounded-full blur-[140px] pointer-events-none" />
       
       <div className="container mx-auto px-4 sm:px-6 md:px-8" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          transition={spring}
+          className="text-center mb-16 sm:mb-20"
         >
-          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
+          <p className="text-accent font-body text-[11px] tracking-[0.3em] uppercase mb-4 font-semibold">
             Blog & Insights
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
@@ -49,35 +51,34 @@ const BlogSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {posts.map((post, i) => (
             <motion.div
               key={post.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-card rounded-2xl overflow-hidden hover-lift animated-border cursor-pointer"
+              transition={{ ...spring, delay: i * 0.08 }}
+              className="group bg-card rounded-3xl overflow-hidden hover-lift cursor-pointer shadow-ios"
             >
-              {/* Top accent bar */}
-              <div className="h-1 bg-brand-gradient" />
+              <div className="h-[3px] bg-brand-gradient" />
               <div className="p-6 md:p-7">
                 <div className="flex items-center gap-2 mb-4">
-                  <BookOpen className="text-accent" size={14} />
-                  <span className="text-accent text-xs font-semibold tracking-wider uppercase font-body">
+                  <BookOpen className="text-accent" size={13} />
+                  <span className="text-accent text-[11px] font-semibold tracking-wider uppercase font-body">
                     {post.category}
                   </span>
                 </div>
                 <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                   {post.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5 font-body">{post.excerpt}</p>
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <div className="flex items-center gap-2 text-muted-foreground/60">
-                    <Clock size={12} />
-                    <span className="text-xs font-body">{post.readTime}</span>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-5 font-body font-light">{post.excerpt}</p>
+                <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                  <div className="flex items-center gap-2 text-muted-foreground/50">
+                    <Clock size={11} />
+                    <span className="text-[11px] font-body">{post.readTime}</span>
                   </div>
                   <ArrowUpRight
-                    size={16}
+                    size={15}
                     className="text-accent opacity-0 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300"
                   />
                 </div>

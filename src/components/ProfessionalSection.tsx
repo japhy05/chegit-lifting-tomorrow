@@ -6,6 +6,8 @@ import xiracomLogo from "@/assets/xiracom-logo.png";
 import mkLogo from "@/assets/mk-organic-farms-logo.png";
 import rutoKumiLogo from "@/assets/ruto-kumi-logo.jpg";
 
+const spring = { type: "spring", damping: 24, stiffness: 200 };
+
 const orgs = [
   {
     logo: shizenLogo,
@@ -43,16 +45,16 @@ const ProfessionalSection = () => {
 
   return (
     <section className="py-16 sm:py-24 md:py-36 bg-background relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-56 sm:w-80 h-56 sm:h-80 bg-indigo/3 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-56 sm:w-80 h-56 sm:h-80 bg-indigo/[0.03] rounded-full blur-[160px] pointer-events-none" />
       
       <div className="container mx-auto px-4 sm:px-6 md:px-8" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          transition={spring}
+          className="text-center mb-16 sm:mb-20"
         >
-          <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-4">
+          <p className="text-accent font-body text-[11px] tracking-[0.3em] uppercase mb-4 font-semibold">
             Professional Leadership
           </p>
           <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
@@ -60,25 +62,25 @@ const ProfessionalSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
           {orgs.map((org, i) => (
             <motion.div
               key={org.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group glass-card rounded-2xl p-7 md:p-8 hover-lift animated-border cursor-default"
+              transition={{ ...spring, delay: i * 0.08 }}
+              className="group glass-card rounded-3xl p-6 md:p-7 hover-lift cursor-default"
             >
               <div className="flex items-start justify-between mb-5">
-                <div className="w-14 h-14 rounded-xl bg-card overflow-hidden flex items-center justify-center p-1.5 border border-border/50 group-hover:shadow-glow transition-shadow duration-500">
+                <div className="w-13 h-13 rounded-2xl bg-card overflow-hidden flex items-center justify-center p-1.5 border border-border/40 group-hover:shadow-brand transition-shadow duration-500 shadow-ios">
                   <img src={org.logo} alt={`${org.name} logo`} className="w-full h-full object-contain" />
                 </div>
-                <ArrowUpRight size={18} className="text-muted-foreground/30 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
+                <ArrowUpRight size={16} className="text-muted-foreground/25 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
               </div>
-              <h3 className="font-display text-xl font-bold text-foreground mb-1">{org.name}</h3>
-              <p className="text-accent text-sm font-medium font-body mb-4">{org.role}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed font-body mb-5">{org.desc}</p>
-              <span className="inline-block bg-primary/8 text-primary text-xs font-semibold px-4 py-1.5 rounded-full font-body">
+              <h3 className="font-display text-lg font-bold text-foreground mb-1">{org.name}</h3>
+              <p className="text-accent text-sm font-medium font-body mb-3">{org.role}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed font-body font-light mb-5">{org.desc}</p>
+              <span className="inline-block bg-primary/[0.06] text-primary text-xs font-semibold px-4 py-1.5 rounded-full font-body">
                 {org.focus}
               </span>
             </motion.div>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Eye, ChevronDown } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.png";
 
-const springTransition = { type: "spring", damping: 24, stiffness: 200 };
+const springTransition = { type: "spring" as const, damping: 24, stiffness: 200 };
 
 const HeroSection = () => {
   return (
